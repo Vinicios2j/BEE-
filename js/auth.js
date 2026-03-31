@@ -1,3 +1,5 @@
+const API_URL = "https://apibee.squareweb.app";
+
 document.querySelector('.login-form').addEventListener('submit', async (e) => {
     e.preventDefault();
 
