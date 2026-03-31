@@ -435,7 +435,7 @@
             vini
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" ...></svg>
         </div>
-        <div id="btnLogout">deslogar</div>
+        <div id="">deslogar</div>
 
     </header>
 
@@ -614,33 +614,37 @@
 
     });
 
-    document.getElementById('baixarFerramenta').addEventListener('click', async () => {
-        try {
-            const response = await fetch('http://localhost:3000/api/download-ferramenta', {
-                method: 'GET',
-                credentials: 'include'
-            });
+document.getElementById('baixarFerramenta').addEventListener('click', async () => {
+    try {
+        const response = await fetch(`${API_URL}/api/download-ferramenta`, {
+            method: 'GET',
+            credentials: 'include'
+        });
 
-            if (!response.ok) {
-                alert("Você precisa estar logado!");
-                return;
-            }
-
-            const blob = await response.blob();
-            const url = window.URL.createObjectURL(blob);
-
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = 'ferramenta-bee.zip';
-            a.click();
-
-            window.URL.revokeObjectURL(url);
-
-        } catch (err) {
-            console.error(err);
-            alert("Erro ao baixar");
+        if (response.status === 401) {
+            alert("Você precisa estar logado!");
+            return;
         }
-    });
+
+        if (!response.ok) {
+            alert("Erro ao baixar ferramenta");
+            return;
+        }
+
+        const blob = await response.blob();
+        const url = window.URL.createObjectURL(blob);
+
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'ferramenta-bee.zip';
+        a.click();
+
+        window.URL.revokeObjectURL(url);
+    } catch (err) {
+        console.error(err);
+        alert("Erro ao baixar");
+    }
+});
 
     async function verificarLogin() {
     try {
@@ -662,20 +666,19 @@
     verificarLogin();
 
     document.getElementById('btnLogout').addEventListener('click', async () => {
-        try {
-            const response = await fetch('http://localhost:3000/api/logout-user', {
-                method: 'POST',
-                credentials: 'include'
-            });
+    try {
+        const response = await fetch(`${API_URL}/api/logout-user`, {
+            method: 'POST',
+            credentials: 'include'
+        });
 
-            if (response.ok) {
-                window.location.href = "../pages/login.html";
-            }
-
-        } catch (err) {
-            console.error(err);
+        if (response.ok) {
+            window.location.href = "../pages/login.html";
         }
-    });
+    } catch (err) {
+        console.error(err);
+    }
+});
 
 
     lucide.createIcons();
