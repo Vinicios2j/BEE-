@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Política de Privacidade - BEE+</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <style>
+        .privacy-hero {
+            padding: 150px 10% 60px;
+            text-align: center;
+        }
+
+        .privacy-container {
+            display: flex;
+            gap: 40px;
+            padding: 40px 10% 80px;
+        }
+
+        .privacy-sidebar {
+            width: 280px;
+            position: sticky;
+            top: 120px;
+            height: fit-content;
+        }
+
+        .privacy-sidebar a {
+            display: block;
+            margin-bottom: 12px;
+            color: #888;
+            text-decoration: none;
+            transition: 0.3s;
+            font-size: 0.9rem;
+        }
+
+        .privacy-sidebar a:hover {
+            color: var(--gold);
+            padding-left: 5px;
+        }
+
+        .privacy-content {
+            flex: 1;
+            max-width: 900px;
+        }
+
+        .privacy-section {
+            margin-bottom: 50px;
+        }
+
+        .privacy-section h2 {
+            margin-bottom: 15px;
+            color: var(--gold);
+        }
+
+        .privacy-section p {
+            color: #aaa;
+            line-height: 1.7;
+            margin-bottom: 10px;
+        }
+
+        .highlight-box {
+            background: rgba(255, 193, 7, 0.05);
+            border: 1px solid rgba(255, 193, 7, 0.2);
+            padding: 20px;
+            border-radius: 15px;
+            margin-top: 15px;
+            color: #ddd;
+        }
+
+        .safe-box {
+            background: rgba(0, 255, 150, 0.05);
+            border: 1px solid rgba(0, 255, 150, 0.2);
+            padding: 20px;
+            border-radius: 15px;
+            margin-top: 15px;
+            color: #ddd;
+        }
+
+        @media (max-width: 900px) {
+            .privacy-container {
+                flex-direction: column;
+            }
+
+            .privacy-sidebar {
+                width: 100%;
+                position: relative;
+                top: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header class="navbar">
+    <div class="logo">
+        <i class="ph ph-bee"></i>
+        <span>BEE<span>+</span></span>
+    </div>
+
+    <nav>
+        <ul>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="plataformas.html">Plataformas</a></li>
+            <li><a href="planos.html">Planos</a></li>
+            <li><a href="central-ajuda.html">Ajuda</a></li>
+        </ul>
+    </nav>
+
+    <a href="login.html" class="btn-login">Entrar</a>
+</header>
+
+<!-- HERO -->
+<section class="privacy-hero">
+    <h1 style="font-size: 2.8rem;">Política de <span style="color: var(--gold);">Privacidade</span></h1>
+    <p style="color: #bbb; max-width: 700px; margin: auto;">
+        Sua privacidade é importante para nós. Esta política explica como coletamos, usamos e protegemos seus dados dentro da BEE+.
+    </p>
+</section>
+
+<div class="privacy-container">
+
+    <!-- MENU -->
+    <div class="privacy-sidebar">
+        <a href="#dados">Dados Coletados</a>
+        <a href="#uso">Uso das Informações</a>
+        <a href="#compartilhamento">Compartilhamento</a>
+        <a href="#seguranca">Segurança</a>
+        <a href="#direitos">Seus Direitos</a>
+        <a href="#cookies">Cookies</a>
+        <a href="#alteracoes">Alterações</a>
+    </div>
+
+    <!-- CONTEÚDO -->
+    <div class="privacy-content">
+
+        <div class="privacy-section" id="dados">
+            <h2>1. Dados Coletados</h2>
+            <p>Podemos coletar informações como nome, e-mail, dados de acesso e informações relacionadas ao uso da plataforma.</p>
+            <p>Também coletamos dados técnicos como endereço IP, dispositivo e comportamento dentro da plataforma.</p>
+        </div>
+
+        <div class="privacy-section" id="uso">
+            <h2>2. Uso das Informações</h2>
+            <p>Utilizamos seus dados para fornecer, melhorar e personalizar nossos serviços.</p>
+            <p>As informações também podem ser usadas para suporte, segurança e comunicação com o usuário.</p>
+
+            <div class="safe-box">
+                ✔ Seus dados são utilizados apenas para funcionamento da plataforma e melhoria da experiência.
+            </div>
+        </div>
+
+        <div class="privacy-section" id="compartilhamento">
+            <h2>3. Compartilhamento de Dados</h2>
+            <p>Não vendemos seus dados pessoais.</p>
+            <p>Podemos compartilhar informações apenas quando necessário para funcionamento da plataforma ou por obrigação legal.</p>
+        </div>
+
+        <div class="privacy-section" id="seguranca">
+            <h2>4. Segurança dos Dados</h2>
+            <p>Adotamos medidas técnicas para proteger suas informações contra acessos não autorizados.</p>
+
+            <div class="highlight-box">
+                🔒 Utilizamos criptografia e boas práticas de segurança para proteger seus dados.
+            </div>
+        </div>
+
+        <div class="privacy-section" id="direitos">
+            <h2>5. Seus Direitos</h2>
+            <p>Você pode solicitar acesso, correção ou exclusão dos seus dados a qualquer momento.</p>
+            <p>Também pode solicitar a interrupção do uso das suas informações.</p>
+        </div>
+
+        <div class="privacy-section" id="cookies">
+            <h2>6. Cookies</h2>
+            <p>Utilizamos cookies para melhorar sua experiência, analisar uso da plataforma e personalizar conteúdo.</p>
+        </div>
+
+        <div class="privacy-section" id="alteracoes">
+            <h2>7. Alterações</h2>
+            <p>Esta política pode ser atualizada a qualquer momento.</p>
+            <p>Recomendamos revisar periodicamente para se manter informado.</p>
+        </div>
+
+    </div>
+
+</div>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>SOBRE A BEE+</h4>
+                <p>Somos a maior plataforma de automação e crescimento de redes sociais do Brasil. Nossa tecnologia de inteligência artificial garante resultados reais e seguros para o seu perfil.</p>
+                <div class="social-icons">
+                    <a href="#"><i class="ph ph-instagram-logo"></i></a>
+                    <a href="#"><i class="ph ph-whatsapp-logo"></i></a>
+                    <a href="#"><i class="ph ph-youtube-logo"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-section">
+                <h4>NAVEGAÇÃO</h4>
+                <a href="../index.html">Página Inicial</a>
+                <a href="plataformas.html">Plataformas</a>
+                <a href="planos.html">Planos e Preços</a>
+                <a href="login.html">Dashboard VIP</a>
+            </div>
+
+            <div class="footer-section">
+                <h4>SUPORTE</h4>
+                <a href="centraAjuda.html">Central de Ajuda</a>
+                <a href="termos.html">Termos de Uso</a>
+                <a href="privacidade.html">Política de Privacidade</a>
+                <a href="suporte.html">Falar com Atendente</a>
+            </div>
+
+            <div class="footer-section">
+                <h4>PAGAMENTO SEGURO</h4>
+                <p>Aceitamos as principais bandeiras e pagamento imediato via PIX.</p>
+                <div class="payment-methods">
+                    <i class="ph ph-pix-logo" style="color: #32BCAD;"></i>
+                    <i class="ph ph-credit-card"></i>
+                    <i class="ph ph-bank"></i>
+                </div>
+                <p style="margin-top: 15px; font-size: 0.75rem; color: #555;">Ambiente criptografado SSL 256-bits.</p>
+            </div>
+        </div>
+        <p class="copyright">&copy; 2026 BEE+ Automations S.A. Todos os direitos reservados.</p>
+    </footer>
+
+<script>
+    document.querySelectorAll('.privacy-sidebar a').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
+</script>
+
+</body>
+</html>

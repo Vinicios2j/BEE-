@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Central de Ajuda - BEE+</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <style>
+        .help-hero {
+            padding: 150px 10% 80px;
+            text-align: center;
+        }
+
+        .help-hero p {
+            max-width: 700px;
+            margin: 15px auto 0;
+            color: #bbb;
+        }
+
+        .search-box {
+            margin-top: 35px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .search-box .search-wrapper {
+            width: 100%;
+            max-width: 620px;
+            position: relative;
+        }
+
+        .search-box i {
+            position: absolute;
+            left: 18px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--gold);
+            font-size: 1.2rem;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 16px 18px 16px 50px;
+            border-radius: 14px;
+            border: 1px solid rgba(255, 193, 7, 0.18);
+            background: rgba(255, 255, 255, 0.03);
+            color: white;
+            outline: none;
+            transition: 0.3s;
+        }
+
+        .search-box input:focus {
+            border-color: var(--gold);
+            box-shadow: 0 0 0 4px rgba(255, 193, 7, 0.08);
+        }
+
+        .quick-topics {
+            padding: 0 10% 20px;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .quick-topic {
+            border: 1px solid rgba(255, 193, 7, 0.15);
+            background: rgba(255, 255, 255, 0.02);
+            color: #ddd;
+            padding: 10px 18px;
+            border-radius: 999px;
+            text-decoration: none;
+            transition: 0.3s;
+            font-size: 0.9rem;
+        }
+
+        .quick-topic:hover {
+            border-color: var(--gold);
+            color: var(--gold);
+            transform: translateY(-2px);
+        }
+
+        .help-categories {
+            padding: 50px 10%;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 30px;
+        }
+
+        .help-card {
+            background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.015));
+            padding: 30px;
+            border-radius: 24px;
+            border: 1px solid rgba(255, 193, 7, 0.08);
+            transition: 0.35s;
+            text-align: left;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .help-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 193, 7, 0.06), transparent);
+            transition: 0.6s;
+        }
+
+        .help-card:hover::before {
+            left: 100%;
+        }
+
+        .help-card:hover {
+            border-color: var(--gold);
+            transform: translateY(-8px);
+            box-shadow: 0 18px 40px rgba(255, 193, 7, 0.08);
+        }
+
+        .help-card .icon-box {
+            width: 64px;
+            height: 64px;
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 193, 7, 0.08);
+            margin-bottom: 20px;
+        }
+
+        .help-card i {
+            font-size: 2rem;
+            color: var(--gold);
+        }
+
+        .help-card h3 {
+            margin-bottom: 12px;
+            font-size: 1.25rem;
+            color: var(--white);
+        }
+
+        .help-card p {
+            color: #999;
+            line-height: 1.6;
+            font-size: 0.95rem;
+            margin-bottom: 18px;
+        }
+
+        .help-card ul {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 25px;
+        }
+
+        .help-card ul li {
+            color: #c7c7c7;
+            font-size: 0.92rem;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .help-card ul li::before {
+            content: "•";
+            color: var(--gold);
+            font-size: 1.1rem;
+        }
+
+        .card-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            color: var(--gold);
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .card-link:hover {
+            gap: 12px;
+        }
+
+        .section-divider-title {
+            padding: 40px 10% 10px;
+            text-align: center;
+        }
+
+        .section-divider-title p {
+            color: #999;
+            max-width: 700px;
+            margin: 10px auto 0;
+        }
+
+        .faq {
+            padding: 70px 10%;
+        }
+
+        .faq h2 {
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        .faq-subtitle {
+            text-align: center;
+            color: #999;
+            margin-bottom: 40px;
+        }
+
+        .faq-list {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: rgba(255,255,255,0.03);
+            padding: 22px 24px;
+            border-radius: 18px;
+            margin-bottom: 16px;
+            cursor: pointer;
+            border: 1px solid rgba(255, 193, 7, 0.08);
+            transition: 0.3s;
+        }
+
+        .faq-item:hover {
+            border-color: var(--gold);
+            background: rgba(255, 193, 7, 0.02);
+        }
+
+        .faq-question {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .faq-question span {
+            font-weight: 600;
+            color: var(--white);
+        }
+
+        .faq-question i {
+            color: var(--gold);
+            font-size: 1.2rem;
+            transition: 0.3s;
+        }
+
+        .faq-answer {
+            margin-top: 14px;
+            color: #aaa;
+            display: none;
+            line-height: 1.7;
+            font-size: 0.95rem;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            padding-top: 14px;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        .faq-item.active .faq-question i {
+            transform: rotate(180deg);
+        }
+
+        .warning-box {
+            max-width: 900px;
+            margin: 15px auto 0;
+            padding: 18px 20px;
+            border-radius: 16px;
+            background: rgba(255, 193, 7, 0.06);
+            border: 1px solid rgba(255, 193, 7, 0.15);
+            color: #d8d8d8;
+            line-height: 1.7;
+        }
+
+        .warning-box strong {
+            color: var(--gold);
+        }
+
+        .help-cta {
+            margin: 80px 10%;
+            padding: 70px 40px;
+            background: linear-gradient(to right, #000, #151515, #000);
+            border-radius: 32px;
+            text-align: center;
+            border: 1px solid rgba(255, 193, 7, 0.1);
+        }
+
+        .help-cta p {
+            color: #bbb;
+            margin: 20px auto 30px;
+            max-width: 650px;
+        }
+
+        .help-cta .btn-select {
+            max-width: 260px;
+            display: inline-block;
+            text-align: center;
+            text-decoration: none;
+            padding: 15px 30px;
+        }
+
+        @media (max-width: 768px) {
+            .help-hero {
+                padding: 130px 5% 60px;
+            }
+
+            .help-categories,
+            .faq,
+            .section-divider-title,
+            .quick-topics {
+                padding-left: 5%;
+                padding-right: 5%;
+            }
+
+            .help-cta {
+                margin: 60px 5%;
+                padding: 50px 25px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header class="navbar">
+    <div class="logo">
+        <i class="ph ph-bee"></i>
+        <span>BEE<span>+</span></span>
+    </div>
+
+    <nav>
+        <ul id="menu-list">
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="plataformas.html">Plataformas</a></li>
+            <li><a href="planos.html">Planos</a></li>
+            <li><a href="central-ajuda.html" style="color: gold;">Ajuda</a></li>
+        </ul>
+    </nav>
+
+    <div style="display: flex; align-items: center; gap: 10px;">
+        <a href="login.html" class="btn-login">Entrar</a>
+        <i class="ph ph-list menu-toggle" onclick="toggleMenu()"></i>
+    </div>
+</header>
+
+<section class="help-hero">
+    <h1 style="font-size: 3rem;">Central de <span style="color: var(--gold);">Ajuda</span></h1>
+    <p>
+        Encontre respostas rápidas, tutoriais e orientações para usar a BEE+ com mais eficiência,
+        segurança e resultado real no seu Instagram.
+    </p>
+
+    <div class="search-box">
+        <div class="search-wrapper">
+            <i class="ph ph-magnifying-glass"></i>
+            <input type="text" id="searchHelp" placeholder="Buscar por instalação, cadastro, segurança...">
+        </div>
+    </div>
+</section>
+
+<div class="quick-topics">
+    <a href="#instalacao-pc" class="quick-topic">Instalação no PC</a>
+    <a href="#instalacao-android" class="quick-topic">Instalação no Android</a>
+    <a href="#cadastro-instagram" class="quick-topic">Cadastrar Instagram</a>
+    <a href="#uso-seguro" class="quick-topic">Uso Seguro</a>
+</div>
+
+<section class="section-divider-title">
+    <h2 style="font-size: 2.3rem;">Tópicos principais</h2>
+    <p>
+        Escolha uma das áreas abaixo para aprender o básico da plataforma e evitar erros comuns no uso da automação.
+    </p>
+</section>
+
+<section class="help-categories">
+    <div class="help-card" id="instalacao-pc" data-search="instalação pc windows computador instalar no pc bee+ desktop">
+        <div class="icon-box">
+            <i class="ph ph-desktop"></i>
+        </div>
+        <h3>Instalação no PC</h3>
+        <p>
+            Aprenda a baixar, instalar e configurar a BEE+ no computador da forma correta para começar a usar sem complicação.
+        </p>
+        <ul>
+            <li>Baixar o instalador oficial</li>
+            <li>Executar a instalação corretamente</li>
+            <li>Fazer login na plataforma</li>
+            <li>Verificar se tudo está funcionando</li>
+        </ul>
+        <a href="#" class="card-link">Ver tutorial <i class="ph ph-arrow-right"></i></a>
+    </div>
+
+    <div class="help-card" id="instalacao-android" data-search="instalação android celular apk app instalar no android bee+ mobile">
+        <div class="icon-box">
+            <i class="ph ph-device-mobile"></i>
+        </div>
+        <h3>Instalação no Android</h3>
+        <p>
+            Veja como instalar a ferramenta no Android, liberar permissões necessárias e preparar o ambiente para uso seguro.
+        </p>
+        <ul>
+            <li>Baixar a ferramenta no celular</li>
+            <li>Baixar navegador que suporta extensão</li>
+            <li>Faça login na plataforma</li>
+            <li>Entrar com sua conta</li>
+        </ul>
+        <a href="#" class="card-link">Ver tutorial <i class="ph ph-arrow-right"></i></a>
+    </div>
+
+    <div class="help-card" id="cadastro-instagram" data-search="cadastrar instagram conectar conta vincular perfil adicionar conta instagram">
+        <div class="icon-box">
+            <i class="ph ph-instagram-logo"></i>
+        </div>
+        <h3>Como cadastrar um Instagram</h3>
+        <p>
+            Entenda como vincular sua conta do Instagram na BEE+, preencher os dados corretamente e evitar erros de conexão.
+        </p>
+        <ul>
+            <li>Adicionar usuário corretamente</li>
+            <li>Vincular a conta na plataforma</li>
+            <li>Confirmar o perfil conectado</li>
+            <li>Iniciar a configuração inicial</li>
+        </ul>
+        <a href="#" class="card-link">Ver tutorial <i class="ph ph-arrow-right"></i></a>
+    </div>
+
+    <div class="help-card" id="uso-seguro" data-search="uso seguro segurança ban bloqueio limite usar com segurança shadowban instagram">
+        <div class="icon-box">
+            <i class="ph ph-shield-check"></i>
+        </div>
+        <h3>Como usar a ferramenta com segurança</h3>
+        <p>
+            Aprenda as boas práticas para reduzir riscos, respeitar limites e utilizar a automação de forma mais inteligente.
+        </p>
+        <ul>
+            <li>Evitar ações exageradas no início</li>
+            <li>Configurar limites com cuidado</li>
+            <li>Fazer crescimento gradual</li>
+            <li>Seguir orientações da plataforma</li>
+        </ul>
+        <a href="#" class="card-link">Ver tutorial <i class="ph ph-arrow-right"></i></a>
+    </div>
+</section>
+
+<section class="faq">
+    <h2>Perguntas Frequentes</h2>
+    <p class="faq-subtitle">Respostas rápidas para as dúvidas mais comuns dos usuários da BEE+.</p>
+
+    <div class="warning-box">
+        <strong>Aviso importante:</strong> nenhuma ferramenta pode prometer risco zero em plataformas como o Instagram.
+        A segurança depende diretamente do uso correto, da configuração dos limites e do comportamento da conta.
+        Quanto mais natural e cuidadoso for o uso, menor o risco de bloqueios ou restrições.
+    </div>
+
+    <div class="faq-list">
+        <div class="faq-item" data-search="bee segura segurança">
+            <div class="faq-question">
+                <span>A BEE+ é segura?</span>
+                <i class="ph ph-caret-down"></i>
+            </div>
+            <div class="faq-answer">
+                Sim, a BEE+ foi pensada para trabalhar com configurações de uso gradual e mais natural. Porém,
+                a segurança também depende de como o cliente utiliza a ferramenta. Seguir os limites recomendados
+                e evitar exageros é essencial para ter uma experiência mais segura.
+            </div>
+        </div>
+
+        <div class="faq-item" data-search="ban bloqueio shadowban restrição instagram">
+            <div class="faq-question">
+                <span>Posso levar ban usando a ferramenta?</span>
+                <i class="ph ph-caret-down"></i>
+            </div>
+            <div class="faq-answer">
+                O risco diminui bastante quando a ferramenta é usada de forma segura, com limites corretos e crescimento gradual.
+                Mas não é certo dizer que nunca haverá risco. Se o cliente exagerar nas ações, configurar de forma agressiva
+                ou usar a automação sem cautela, a conta pode sofrer bloqueios temporários ou restrições.
+            </div>
+        </div>
+
+        <div class="faq-item" data-search="cadastrar instagram conectar conta perfil">
+            <div class="faq-question">
+                <span>Como cadastrar um Instagram na plataforma?</span>
+                <i class="ph ph-caret-down"></i>
+            </div>
+            <div class="faq-answer">
+                Basta acessar a área de conexão da plataforma, informar o usuário corretamente e seguir o fluxo de vinculação.
+                Depois disso, confirme se o perfil foi reconhecido pela BEE+ antes de iniciar qualquer automação.
+            </div>
+        </div>
+
+        <div class="faq-item" data-search="instalação pc windows download">
+            <div class="faq-question">
+                <span>Como instalar no PC?</span>
+                <i class="ph ph-caret-down"></i>
+            </div>
+            <div class="faq-answer">
+                Faça o download do instalador oficial, execute o arquivo no computador, finalize a instalação e depois entre
+                com sua conta. Assim que acessar, confira se a plataforma carregou corretamente e se todas as permissões necessárias
+                estão liberadas.
+            </div>
+        </div>
+
+        <div class="faq-item" data-search="instalação android celular aplicativo apk">
+            <div class="faq-question">
+                <span>Como instalar no Android?</span>
+                <i class="ph ph-caret-down"></i>
+            </div>
+            <div class="faq-answer">
+                Baixe o aplicativo da fonte oficial, permita as permissões necessárias no aparelho e faça login na sua conta.
+                Antes de começar a usar, revise as configurações iniciais para garantir melhor estabilidade e segurança.
+            </div>
+        </div>
+
+        <div class="faq-item" data-search="cancelar plano pagamento assinatura">
+            <div class="faq-question">
+                <span>Como cancelo meu plano?</span>
+                <i class="ph ph-caret-down"></i>
+            </div>
+            <div class="faq-answer">
+                Você pode cancelar seu plano diretamente pelo whatssap da plataforma entrando em contato com o suporte da BEE+ <a href="https://w.app/nwr3oq" style="color: cyan;" target="_blank" rel="noopener noreferrer">Click aqui</a>.
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="help-cta">
+    <h2>Não encontrou o que precisava?</h2>
+    <p>
+        Nossa equipe pode te ajudar com instalação, configuração da conta, segurança de uso e dúvidas sobre a plataforma.
+    </p>
+    <a href="#" class="btn-select">Falar com Suporte</a>
+</section>
+
+<footer class="footer">
+    <div class="footer-content">
+        <div class="footer-section">
+            <h4>SOBRE A BEE+</h4>
+            <p>Somos uma plataforma de automação e crescimento para redes sociais, com foco em performance, praticidade e uso inteligente.</p>
+            <div class="social-icons">
+                <a href="#"><i class="ph ph-instagram-logo"></i></a>
+                <a href="#"><i class="ph ph-whatsapp-logo"></i></a>
+                <a href="#"><i class="ph ph-youtube-logo"></i></a>
+            </div>
+        </div>
+
+        <div class="footer-section">
+            <h4>NAVEGAÇÃO</h4>
+            <a href="../index.html">Página Inicial</a>
+            <a href="plataformas.html">Plataformas</a>
+            <a href="planos.html">Planos e Preços</a>
+            <a href="central-ajuda.html">Central de Ajuda</a>
+        </div>
+
+        <div class="footer-section">
+            <h4>SUPORTE</h4>
+            <a href="centraAjuda.html">Central de Ajuda</a>
+            <a href="termos.html">Termos de Uso</a>
+            <a href="privacidade.html">Política de Privacidade</a>
+            <a href="suporte.html">Falar com Atendente</a>
+        </div>
+
+        <div class="footer-section">
+            <h4>PAGAMENTO SEGURO</h4>
+            <p>Aceitamos as principais formas de pagamento com segurança e proteção de dados.</p>
+            <div class="payment-methods">
+                <i class="ph ph-pix-logo" style="color: #32BCAD;"></i>
+                <i class="ph ph-credit-card"></i>
+                <i class="ph ph-bank"></i>
+            </div>
+            <p style="margin-top: 15px; font-size: 0.75rem; color: #555;">Ambiente protegido com criptografia SSL.</p>
+        </div>
+    </div>
+
+    <p class="copyright">© 2026 BEE+ Automations S.A. Todos os direitos reservados.</p>
+</footer>
+
+<script>
+    document.querySelectorAll(".faq-item").forEach(item => {
+        item.addEventListener("click", () => {
+            item.classList.toggle("active");
+        });
+    });
+
+    const searchInput = document.getElementById("searchHelp");
+    const searchableItems = document.querySelectorAll(".help-card, .faq-item");
+
+    searchInput.addEventListener("input", () => {
+        const value = searchInput.value.toLowerCase().trim();
+
+        searchableItems.forEach(item => {
+            const text = item.dataset.search || item.innerText.toLowerCase();
+
+            if (text.includes(value)) {
+                item.style.display = "";
+            } else {
+                item.style.display = "none";
+            }
+        });
+    });
+
+    function toggleMenu() {
+        const menu = document.getElementById("menu-list");
+        if (menu.style.display === "flex") {
+            menu.style.display = "none";
+        } else {
+            menu.style.display = "flex";
+            menu.style.flexDirection = "column";
+            menu.style.position = "absolute";
+            menu.style.top = "70px";
+            menu.style.right = "20px";
+            menu.style.background = "#111";
+            menu.style.padding = "20px";
+            menu.style.borderRadius = "12px";
+            menu.style.border = "1px solid rgba(255, 193, 7, 0.2)";
+        }
+    }
+</script>
+
+</body>
+</html>

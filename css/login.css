@@ -1,0 +1,136 @@
+/* Fundo específico para a tela de login */
+.login-body {
+    background: radial-gradient(circle at center, #1a1a1a 0%, #050505 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.login-container {
+    background: rgba(26, 26, 26, 0.6);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 193, 7, 0.1);
+    padding: 50px 40px;
+    border-radius: 30px;
+    width: 100%;
+    max-width: 450px;
+    text-align: center;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+}
+
+.login-header {
+    margin-bottom: 35px;
+}
+
+.login-header .logo {
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.login-header h1 {
+    font-size: 1.8rem;
+    color: var(--white);
+    margin-bottom: 10px;
+}
+
+.login-header p {
+    color: #888;
+    font-size: 0.9rem;
+}
+
+/* Estilo dos Inputs */
+.login-form {
+    text-align: left;
+}
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    display: block;
+    color: var(--gold);
+    font-size: 0.85rem;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.input-wrapper i {
+    position: absolute;
+    left: 15px;
+    color: #555;
+    font-size: 1.2rem;
+}
+
+.input-wrapper input {
+    width: 100%;
+    padding: 15px 15px 15px 45px;
+    background: #0f0f0f;
+    border: 1px solid #222;
+    border-radius: 12px;
+    color: white;
+    font-size: 1rem;
+    outline: none;
+    transition: 0.3s;
+}
+
+.input-wrapper input:focus {
+    border-color: var(--gold);
+    box-shadow: 0 0 10px rgba(255, 193, 7, 0.1);
+}
+
+.forgot-pass {
+    display: block;
+    text-align: right;
+    font-size: 0.8rem;
+    color: #666;
+    margin-top: 5px;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.forgot-pass:hover {
+    color: var(--gold);
+}
+
+/* Botão de Enviar */
+.btn-login-submit {
+    width: 100%;
+    padding: 15px;
+    background: var(--gold);
+    color: var(--black);
+    border: none;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    margin-top: 25px;
+    transition: 0.3s;
+    text-transform: uppercase;
+}
+
+.btn-login-submit:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(255, 193, 7, 0.3);
+    background: #ffca28;
+}
+
+.login-footer {
+    margin-top: 30px;
+    font-size: 0.9rem;
+    color: #888;
+}
+
+.login-footer a {
+    color: var(--gold);
+    text-decoration: none;
+    font-weight: 600;
+}

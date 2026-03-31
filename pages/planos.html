@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Planos - BEE+</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/planos.css"> 
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+<body>
+
+    <header class="navbar">
+    <div class="logo">
+        <i class="ph ph-bee"></i>
+        <span>BEE<span>+</span></span>
+    </div>
+    
+    <nav>
+        <ul id="menu-list">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="plataformas.html" >Plataformas</a></li>
+                <li><a href="planos.html" style="color: gold;">Planos</a></li>
+        </ul>
+    </nav>
+
+    <div style="display: flex; align-items: center; gap: 10px;">
+        <a href="login.html" class="btn-login" id="btnEntrar">Entrar</a>
+        <i class="ph ph-list menu-toggle" onclick="toggleMenu()"></i>
+    </div>
+</header>
+
+    <main class="hero">
+        <div class="trial-banner">
+            <p>🐝 É sua primeira vez na colmeia? <a href="https://w.app/ukwoqj" target="_blank">Clique aqui e garanta seus primeiros 30 dias de graça na plataforma!</a></p>
+        </div>
+
+        <h1>Escolha seu nível de <span style="color: var(--gold);">Polinização</span></h1>
+        <p>Selecione o plano que melhor se adapta ao seu objetivo de crescimento.</p>
+
+        <div class="plans-container">
+            <div class="plan-card">
+                <h3>Mensal</h3>
+                <div class="price">R$ 49<span>/mês</span></div>
+                <ul class="features">
+                    <li><i class="ph ph-check-circle"></i> Automação Básica</li>
+                    <li><i class="ph ph-check-circle"></i> 250 Seguidores/mês est.</li>
+                    <li><i class="ph ph-check-circle"></i> Suporte via Chat</li>
+                    <li><i class="ph ph-check-circle"></i> 1 instagram disponivel</li>
+                </ul>
+                <button class="btn-select">Assinar Agora</button>
+            </div>
+
+            <div class="plan-card popular">
+                <div class="badge">MAIS POPULAR</div>
+                <h3>Anual</h3>
+                <div class="price">R$ 399<span>/ano</span></div>
+                <p class="save-tag">Economize R$ 189 por ano</p>
+                <ul class="features">
+                    <li><i class="ph ph-check-circle"></i> Automação Turbo</li>
+                    <li><i class="ph ph-check-circle"></i> Ilimi. Seguidores/mês est.</li>
+                    <li><i class="ph ph-check-circle"></i> PDF Filtros por Nicho/Local</li>
+                    <li><i class="ph ph-check-circle"></i> Suporte VIP 24h</li>
+                    <li><i class="ph ph-check-circle"></i> 4 instagram disponivel</li>
+                    <li><i class="ph ph-check-circle"></i> Disparador em massa Direct</li>
+                </ul>
+                <button class="btn-select gold-bg">Garantir Desconto</button>
+            </div>
+
+            <div class="plan-card">
+                <h3>Vitalício</h3>
+                <div class="price">R$ 997<span>/único</span></div>
+                <ul class="features">
+                    <li><i class="ph ph-check-circle"></i> Tudo incluido dos outros planos</li>
+                    <li><i class="ph ph-check-circle"></i> Acesso para Sempre</li>
+                    <li><i class="ph ph-check-circle"></i> Todas as Atualizações</li>
+                    <li><i class="ph ph-check-circle"></i> Mentoria de Perfil</li>
+                    <li><i class="ph ph-check-circle"></i> Script Premium BEE+</li>
+                    <li><i class="ph ph-check-circle"></i> Suporte VIP Call + Chat</li>
+                    <li><i class="ph ph-check-circle"></i> Grupo de membros</li>
+                    <li><i class="ph ph-check-circle"></i> PDF de crescimento</li>
+                    <li><i class="ph ph-check-circle"></i> Contas de insta ilimitadas</li>
+                </ul>
+                <button class="btn-select">Comprar Acesso</button>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>SOBRE A BEE+</h4>
+                <p>Somos a maior plataforma de automação e crescimento de redes sociais do Brasil. Nossa tecnologia de inteligência artificial garante resultados reais e seguros para o seu perfil.</p>
+                <div class="social-icons">
+                    <a href="#"><i class="ph ph-instagram-logo"></i></a>
+                    <a href="#"><i class="ph ph-whatsapp-logo"></i></a>
+                    <a href="#"><i class="ph ph-youtube-logo"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-section">
+                <h4>NAVEGAÇÃO</h4>
+                <a href="../index.html">Página Inicial</a>
+                <a href="plataformas.html">Plataformas</a>
+                <a href="planos.html">Planos e Preços</a>
+                <a href="login.html">Dashboard VIP</a>
+            </div>
+
+            <div class="footer-section">
+                <h4>SUPORTE</h4>
+                <a href="centraAjuda.html">Central de Ajuda</a>
+                <a href="termos.html">Termos de Uso</a>
+                <a href="privacidade.html">Política de Privacidade</a>
+                <a href="suporte.html">Falar com Atendente</a>
+            </div>
+
+            <div class="footer-section">
+                <h4>PAGAMENTO SEGURO</h4>
+                <p>Aceitamos as principais bandeiras e pagamento imediato via PIX.</p>
+                <div class="payment-methods">
+                    <i class="ph ph-pix-logo" style="color: #32BCAD;"></i>
+                    <i class="ph ph-credit-card"></i>
+                    <i class="ph ph-bank"></i>
+                </div>
+                <p style="margin-top: 15px; font-size: 0.75rem; color: #555;">Ambiente criptografado SSL 256-bits.</p>
+            </div>
+        </div>
+        <p class="copyright">&copy; 2026 BEE+ Automations S.A. Todos os direitos reservados.</p>
+    </footer>
+
+    <script src="../js/main.js"></script>
+</body>
+</html>

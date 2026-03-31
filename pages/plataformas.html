@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BEE+ | A Colmeia do Engajamento</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+<body>
+
+    <header class="navbar">
+    <div class="logo">
+        <i class="ph ph-bee"></i>
+        <span>BEE<span>+</span></span>
+    </div>
+    
+    <nav>
+        <ul id="menu-list">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="plataformas.html" style="color: gold;">Plataformas</a></li>
+                <li><a href="planos.html">Planos</a></li>
+        </ul>
+    </nav>
+
+    <div style="display: flex; align-items: center; gap: 10px;">
+        <a href="login.html" class="btn-login" id="btnEntrar">Entrar</a>
+        <i class="ph ph-list menu-toggle" onclick="toggleMenu()"></i>
+    </div>
+</header>
+
+    <main class="hero">
+        <h1>Onde você deseja polinizar seu perfil?</h1>
+        <p>Aumente seus seguidores de forma orgânica e profissional com a BEE+.</p>
+
+        <div class="selection-container" id="plataformas">
+            <div class="card" onclick="selectPlatform('mobile')">
+                <div class="card-image">
+                    <img src="../assets/mobile-art.png" alt="Celular">
+                </div>
+                <h3>No Celular</h3>
+                <p>Otimizado para Android e iOS. Ganhe seguidores em qualquer lugar.</p>
+                <button class="btn-select">Acessar Colmeia</button>
+            </div>
+
+            <div class="card" onclick="selectPlatform('desktop')">
+                <div class="card-image">
+                    <img src="../assets/desktop-art.png" alt="Computador">
+                </div>
+                <h3>No Computador</h3>
+                <p>Extensão premium para Browser com automação avançada.</p>
+                <button class="btn-select">Instalar Script</button>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>SOBRE A BEE+</h4>
+                <p>Somos a maior plataforma de automação e crescimento de redes sociais do Brasil. Nossa tecnologia de inteligência artificial garante resultados reais e seguros para o seu perfil.</p>
+                <div class="social-icons">
+                    <a href="#"><i class="ph ph-instagram-logo"></i></a>
+                    <a href="#"><i class="ph ph-whatsapp-logo"></i></a>
+                    <a href="#"><i class="ph ph-youtube-logo"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-section">
+                <h4>NAVEGAÇÃO</h4>
+                <a href="../index.html">Página Inicial</a>
+                <a href="plataformas.html">Plataformas</a>
+                <a href="planos.html">Planos e Preços</a>
+                <a href="login.html">Dashboard VIP</a>
+            </div>
+
+            <div class="footer-section">
+                <h4>SUPORTE</h4>
+                <a href="centraAjuda.html">Central de Ajuda</a>
+                <a href="termos.html">Termos de Uso</a>
+                <a href="privacidade.html">Política de Privacidade</a>
+                <a href="suporte.html">Falar com Atendente</a>
+            </div>
+
+            <div class="footer-section">
+                <h4>PAGAMENTO SEGURO</h4>
+                <p>Aceitamos as principais bandeiras e pagamento imediato via PIX.</p>
+                <div class="payment-methods">
+                    <i class="ph ph-pix-logo" style="color: #32BCAD;"></i>
+                    <i class="ph ph-credit-card"></i>
+                    <i class="ph ph-bank"></i>
+                </div>
+                <p style="margin-top: 15px; font-size: 0.75rem; color: #555;">Ambiente criptografado SSL 256-bits.</p>
+            </div>
+        </div>
+        <p class="copyright">&copy; 2026 BEE+ Automations S.A. Todos os direitos reservados.</p>
+    </footer>
+
+    <script src="../js/main.js"></script>
+</body>
+</html>

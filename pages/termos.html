@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Termos de Uso - BEE+</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <style>
+        .terms-hero {
+            padding: 150px 10% 60px;
+            text-align: center;
+        }
+
+        .terms-container {
+            display: flex;
+            gap: 40px;
+            padding: 40px 10% 80px;
+        }
+
+        /* MENU LATERAL */
+        .terms-sidebar {
+            width: 280px;
+            position: sticky;
+            top: 120px;
+            height: fit-content;
+        }
+
+        .terms-sidebar a {
+            display: block;
+            margin-bottom: 12px;
+            color: #888;
+            text-decoration: none;
+            transition: 0.3s;
+            font-size: 0.9rem;
+        }
+
+        .terms-sidebar a:hover {
+            color: var(--gold);
+            padding-left: 5px;
+        }
+
+        /* CONTEÚDO */
+        .terms-content {
+            flex: 1;
+            max-width: 900px;
+        }
+
+        .terms-section {
+            margin-bottom: 50px;
+        }
+
+        .terms-section h2 {
+            margin-bottom: 15px;
+            color: var(--gold);
+        }
+
+        .terms-section p {
+            color: #aaa;
+            line-height: 1.7;
+            margin-bottom: 10px;
+        }
+
+        .highlight-box {
+            background: rgba(255, 193, 7, 0.05);
+            border: 1px solid rgba(255, 193, 7, 0.2);
+            padding: 20px;
+            border-radius: 15px;
+            margin-top: 15px;
+            color: #ddd;
+        }
+
+        @media (max-width: 900px) {
+            .terms-container {
+                flex-direction: column;
+            }
+
+            .terms-sidebar {
+                width: 100%;
+                position: relative;
+                top: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header class="navbar">
+    <div class="logo">
+        <i class="ph ph-bee"></i>
+        <span>BEE<span>+</span></span>
+    </div>
+
+    <nav>
+        <ul>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="plataformas.html">Plataformas</a></li>
+            <li><a href="planos.html">Planos</a></li>
+            <li><a href="central-ajuda.html">Ajuda</a></li>
+        </ul>
+    </nav>
+
+    <a href="login.html" class="btn-login">Entrar</a>
+</header>
+
+<!-- HERO -->
+<section class="terms-hero">
+    <h1 style="font-size: 2.8rem;">Termos de <span style="color: var(--gold);">Uso</span></h1>
+    <p style="color: #bbb; max-width: 700px; margin: auto;">
+        Ao utilizar a plataforma BEE+, você concorda com os termos e condições abaixo. Leia atentamente antes de utilizar nossos serviços.
+    </p>
+</section>
+
+<div class="terms-container">
+
+    <!-- MENU LATERAL -->
+    <div class="terms-sidebar">
+        <a href="#uso">Uso da Plataforma</a>
+        <a href="#conta">Responsabilidade da Conta</a>
+        <a href="#pagamento">Pagamentos</a>
+        <a href="#seguranca">Segurança e Riscos</a>
+        <a href="#proibicoes">Proibições</a>
+        <a href="#cancelamento">Cancelamento</a>
+        <a href="#alteracoes">Alterações</a>
+    </div>
+
+    <!-- CONTEÚDO -->
+    <div class="terms-content">
+
+        <div class="terms-section" id="uso">
+            <h2>1. Uso da Plataforma</h2>
+            <p>A BEE+ fornece ferramentas de automação para redes sociais com o objetivo de auxiliar no crescimento de perfis.</p>
+            <p>O uso da plataforma deve ser feito de forma responsável, respeitando as diretrizes das redes sociais utilizadas.</p>
+        </div>
+
+        <div class="terms-section" id="conta">
+            <h2>2. Responsabilidade da Conta</h2>
+            <p>O usuário é totalmente responsável pelas informações inseridas e pelo uso da sua conta.</p>
+            <p>A BEE+ não se responsabiliza por uso indevido ou configurações incorretas feitas pelo usuário.</p>
+        </div>
+
+        <div class="terms-section" id="pagamento">
+            <h2>3. Pagamentos</h2>
+            <p>Os serviços da plataforma são disponibilizados mediante assinatura ou pagamento único, conforme plano escolhido.</p>
+            <p>Não garantimos reembolso após a utilização da plataforma.</p>
+        </div>
+
+        <div class="terms-section" id="seguranca">
+            <h2>4. Segurança e Riscos</h2>
+            <p>A BEE+ utiliza técnicas que simulam comportamento humano para reduzir riscos.</p>
+            
+            <div class="highlight-box">
+                ⚠️ Nenhuma ferramenta pode garantir risco zero.
+                O uso inadequado, configurações agressivas ou excesso de ações podem gerar bloqueios ou restrições na conta.
+            </div>
+
+            <p>O usuário é responsável por utilizar a ferramenta de forma segura e seguir as recomendações.</p>
+        </div>
+
+        <div class="terms-section" id="proibicoes">
+            <h2>5. Proibições</h2>
+            <p>É proibido utilizar a plataforma para atividades ilegais, fraudulentas ou que violem as diretrizes das redes sociais.</p>
+        </div>
+
+        <div class="terms-section" id="cancelamento">
+            <h2>6. Cancelamento</h2>
+            <p>O usuário pode cancelar sua assinatura a qualquer momento.</p>
+            <p>Após o cancelamento, o acesso pode ser encerrado imediatamente ou ao final do período contratado.</p>
+        </div>
+
+        <div class="terms-section" id="alteracoes">
+            <h2>7. Alterações</h2>
+            <p>A BEE+ pode atualizar estes termos a qualquer momento sem aviso prévio.</p>
+            <p>Recomendamos que o usuário revise esta página periodicamente.</p>
+        </div>
+
+    </div>
+
+</div>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>SOBRE A BEE+</h4>
+                <p>Somos a maior plataforma de automação e crescimento de redes sociais do Brasil. Nossa tecnologia de inteligência artificial garante resultados reais e seguros para o seu perfil.</p>
+                <div class="social-icons">
+                    <a href="#"><i class="ph ph-instagram-logo"></i></a>
+                    <a href="#"><i class="ph ph-whatsapp-logo"></i></a>
+                    <a href="#"><i class="ph ph-youtube-logo"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-section">
+                <h4>NAVEGAÇÃO</h4>
+                <a href="../index.html">Página Inicial</a>
+                <a href="plataformas.html">Plataformas</a>
+                <a href="planos.html">Planos e Preços</a>
+                <a href="login.html">Dashboard VIP</a>
+            </div>
+
+            <div class="footer-section">
+                <h4>SUPORTE</h4>
+                <a href="centraAjuda.html">Central de Ajuda</a>
+                <a href="termos.html">Termos de Uso</a>
+                <a href="privacidade.html">Política de Privacidade</a>
+                <a href="suporte.html">Falar com Atendente</a>
+            </div>
+
+            <div class="footer-section">
+                <h4>PAGAMENTO SEGURO</h4>
+                <p>Aceitamos as principais bandeiras e pagamento imediato via PIX.</p>
+                <div class="payment-methods">
+                    <i class="ph ph-pix-logo" style="color: #32BCAD;"></i>
+                    <i class="ph ph-credit-card"></i>
+                    <i class="ph ph-bank"></i>
+                </div>
+                <p style="margin-top: 15px; font-size: 0.75rem; color: #555;">Ambiente criptografado SSL 256-bits.</p>
+            </div>
+        </div>
+        <p class="copyright">&copy; 2026 BEE+ Automations S.A. Todos os direitos reservados.</p>
+    </footer>
+
+<script>
+    document.querySelectorAll('.terms-sidebar a').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
+</script>
+
+</body>
+</html>

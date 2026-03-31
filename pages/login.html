@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - BEE+</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/login.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+<body class="login-body">
+
+    <header class="navbar" style="position: absolute; top: 0;">
+    <div class="logo">
+        <i class="ph ph-bee"></i>
+        <span>BEE<span>+</span></span>
+    </div>
+    
+    <nav>
+        <ul id="menu-list">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="plataformas.html" ">Plataformas</a></li>
+                <li><a href="planos.html">Planos</a></li>
+        </ul>
+    </nav>
+
+    <div style="display: flex; align-items: center; gap: 10px;">
+        <a href="login.html" class="btn-login" id="btnEntrar">Entrar</a>
+        <i class="ph ph-list menu-toggle" onclick="toggleMenu()"></i>
+    </div>
+</header>
+
+
+    <div class="login-container">
+        <div class="login-header">
+            <h1>Bem-vindo de volta!</h1>
+            <p>Acesse sua colmeia e acompanhe seus resultados.</p>
+        </div>
+
+        <form class="login-form">
+            <div class="input-group">
+                <label for="nome">Nome</label>
+                <div class="input-wrapper">
+                    <i class="ph ph-envelope"></i>
+                    <input type="text" id="nomeUser" placeholder="vini" required>
+                </div>
+            </div>
+
+            <div class="input-group">
+                <label for="password">Senha</label>
+                <div class="input-wrapper">
+                    <i class="ph ph-lock"></i>
+                    <input type="password" id="password" placeholder="••••••••" required>
+                </div>
+                <a href="#" class="forgot-pass">Esqueceu a senha?</a>
+            </div>
+
+            <button type="submit" class="btn-login-submit">Entrar na Plataforma</button>
+        </form>
+
+        <div class="login-footer">
+            <p>Ainda não faz parte? <a href="planos.html">Garanta seus 30 dias grátis</a></p>
+        </div>
+    </div>
+
+    <script src="../js/auth.js"></script>
+
+</body>
+</html>

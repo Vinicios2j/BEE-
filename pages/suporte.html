@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Falar com Atendente - BEE+</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <style>
+        .support-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        .support-box {
+            background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+            border: 1px solid rgba(255, 193, 7, 0.1);
+            padding: 60px 40px;
+            border-radius: 30px;
+            max-width: 500px;
+            width: 100%;
+        }
+
+        .support-box h1 {
+            margin-bottom: 15px;
+        }
+
+        .support-box p {
+            color: #aaa;
+            margin-bottom: 30px;
+        }
+
+        .whatsapp-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            justify-content: center;
+            width: 100%;
+            padding: 16px;
+            border-radius: 14px;
+            font-weight: 700;
+            text-decoration: none;
+            background: #25D366;
+            color: white;
+            transition: 0.3s;
+        }
+
+        .whatsapp-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.3);
+        }
+
+        .whatsapp-btn i {
+            font-size: 1.4rem;
+        }
+    </style>
+</head>
+
+<body>
+
+<header class="navbar">
+    <div class="logo">
+        <i class="ph ph-bee"></i>
+        <span>BEE<span>+</span></span>
+    </div>
+
+    <nav>
+        <ul>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="plataformas.html">Plataformas</a></li>
+            <li><a href="planos.html">Planos</a></li>
+            <li><a href="central-ajuda.html">Ajuda</a></li>
+        </ul>
+    </nav>
+
+    <a href="login.html" class="btn-login">Entrar</a>
+</header>
+
+<div class="support-container">
+    <div class="support-box">
+        <h1>Fale com um <span style="color: var(--gold);">Atendente</span></h1>
+        <p>Precisa de ajuda? Clique no botão abaixo e fale direto com nosso suporte via WhatsApp.</p>
+
+        <!-- TROCA O NÚMERO AQUI -->
+        <a href="https://wa.me/5521999287921?text=Olá,%20vim%20pela%20BEE+%20e%20preciso%20de%20ajuda" target="_blank" class="whatsapp-btn">
+            <i class="ph ph-whatsapp-logo"></i>
+            Falar no WhatsApp
+        </a>
+    </div>
+</div>
+
+</body>
+</html>
