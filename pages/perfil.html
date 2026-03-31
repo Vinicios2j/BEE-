@@ -525,6 +525,8 @@
 
 <script>
 
+    const API_URL = "https://apibee.squareweb.app";
+
     function formatarUsuario(input) {
         let valor = input.value;
 
@@ -641,21 +643,20 @@
     });
 
     async function verificarLogin() {
-        try {
-            const response = await fetch('http://localhost:3000/api/verificar-login', {
-                method: 'GET',
-                credentials: 'include'
-            });
+    try {
+        const response = await fetch(`${API_URL}/api/verificar-login`, {
+            method: 'GET',
+            credentials: 'include'
+        });
 
-            if (!response.ok) {
-                window.location.href = "../pages/login.html";
-            }
-
-        } catch (error) {
-            console.error(error);
+        if (!response.ok) {
             window.location.href = "../pages/login.html";
         }
+    } catch (error) {
+        console.error(error);
+        window.location.href = "../pages/login.html";
     }
+}
 
     // 🔥 EXECUTA AO ABRIR
     verificarLogin();
