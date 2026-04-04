@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aviso de Pausa do Instagram</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+  <style>
+    :root {
+      --bg: #07111f;
+      --bg-2: #0b1830;
+      --surface: rgba(12, 24, 44, 0.82);
+      --surface-2: rgba(17, 31, 58, 0.92);
+      --line: rgba(148, 163, 184, 0.14);
+      --text: #eef4ff;
+      --muted: #aeb9cc;
+      --cyan: #5eead4;
+      --cyan-2: #22d3ee;
+      --violet: #8b5cf6;
+      --pink: #f472b6;
+      --amber: #f59e0b;
+      --red: #fb7185;
+      --green: #34d399;
+      --radius-xl: 28px;
+      --radius-lg: 22px;
+      --radius-md: 18px;
+      --shadow: 0 24px 60px rgba(0, 0, 0, 0.38);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      min-height: 100vh;
+      font-family: 'Inter', sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 15% 20%, rgba(34, 211, 238, 0.14), transparent 22%),
+        radial-gradient(circle at 80% 10%, rgba(139, 92, 246, 0.18), transparent 26%),
+        radial-gradient(circle at 50% 100%, rgba(244, 114, 182, 0.10), transparent 30%),
+        linear-gradient(135deg, var(--bg) 0%, var(--bg-2) 45%, #050c18 100%);
+      padding: 32px 16px;
+    }
+
+    .noise {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.05;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.6) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.6) 1px, transparent 1px);
+      background-size: 24px 24px;
+      mask-image: radial-gradient(circle at center, black 35%, transparent 95%);
+    }
+
+    .shell {
+      max-width: 860px;
+      margin: 0 auto;
+      position: relative;
+      border: 1px solid rgba(94, 234, 212, 0.14);
+      background: linear-gradient(180deg, rgba(9, 18, 35, 0.78), rgba(7, 14, 28, 0.94));
+      backdrop-filter: blur(14px);
+      border-radius: 32px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      isolation: isolate;
+    }
+
+    .shell::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(135deg, rgba(34, 211, 238, 0.12), transparent 22%, transparent 72%, rgba(139, 92, 246, 0.14)),
+        radial-gradient(circle at top, rgba(255,255,255,0.04), transparent 38%);
+      z-index: -1;
+    }
+
+    .top-glow {
+      position: absolute;
+      inset: 0 auto auto 0;
+      width: 100%;
+      height: 180px;
+      background: linear-gradient(180deg, rgba(94, 234, 212, 0.10), transparent);
+      pointer-events: none;
+    }
+
+    .content {
+      padding: 28px;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 22px;
+      align-items: center;
+      padding: 8px 0 10px;
+    }
+
+    .hero-copy {
+      padding: 12px 4px 12px 6px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 14px;
+      border: 1px solid rgba(244, 114, 182, 0.22);
+      border-radius: 999px;
+      background: rgba(244, 114, 182, 0.08);
+      color: #ffd4ea;
+      font-size: 0.92rem;
+      font-weight: 600;
+      margin-bottom: 18px;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.2rem, 5vw, 3.7rem);
+      line-height: 1.03;
+      letter-spacing: -0.05em;
+      font-weight: 800;
+      margin-bottom: 14px;
+      max-width: 12ch;
+    }
+
+    .hero h1 span {
+      background: linear-gradient(90deg, var(--cyan), #a78bfa 60%, #f9a8d4 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero p {
+      font-size: 1.05rem;
+      line-height: 1.8;
+      color: var(--muted);
+      max-width: 58ch;
+    }
+
+    .hero-visual {
+      position: relative;
+      min-height: 100%;
+    }
+
+    .visual-card {
+      position: relative;
+      border-radius: 30px;
+      background: linear-gradient(180deg, rgba(19, 33, 62, 0.98), rgba(10, 21, 40, 0.98));
+      border: 1px solid rgba(255,255,255,0.08);
+      padding: 18px;
+      box-shadow: 0 18px 40px rgba(0,0,0,0.28);
+    }
+
+    .visual-card::before {
+      content: "";
+      position: absolute;
+      inset: -1px;
+      border-radius: inherit;
+      padding: 1px;
+      background: linear-gradient(135deg, rgba(94,234,212,0.45), rgba(139,92,246,0.45), rgba(244,114,182,0.35));
+      -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      pointer-events: none;
+    }
+
+    .status-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 12px;
+      border-radius: 999px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      margin-bottom: 14px;
+      background: rgba(245, 158, 11, 0.12);
+      color: #ffd48a;
+      border: 1px solid rgba(245, 158, 11, 0.22);
+    }
+
+    .mini-phone {
+      border-radius: 24px;
+      padding: 18px;
+      background: linear-gradient(180deg, #f5f7fb, #e5eaf2);
+      color: #1f2937;
+      min-height: 360px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .mini-phone::before {
+      content: "";
+      position: absolute;
+      top: 14px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 90px;
+      height: 8px;
+      border-radius: 999px;
+      background: rgba(17, 24, 39, 0.14);
+    }
+
+    .mini-icon {
+      width: 72px;
+      height: 72px;
+      margin: 0 auto 18px;
+      border-radius: 22px;
+      background: linear-gradient(135deg, rgba(251,113,133,0.16), rgba(245,158,11,0.20));
+      display: grid;
+      place-items: center;
+      color: #ef4444;
+      font-size: 2rem;
+    }
+
+    .mini-phone h3 {
+      font-size: 1.28rem;
+      margin-bottom: 10px;
+    }
+
+    .mini-phone p {
+      font-size: 0.98rem;
+      line-height: 1.65;
+      color: #4b5563;
+      max-width: 24ch;
+      margin: 0 auto;
+    }
+
+    .cta-row {
+      margin-top: 18px;
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .mini-btn {
+      padding: 10px 14px;
+      border-radius: 12px;
+      font-size: 0.88rem;
+      font-weight: 700;
+      border: 0;
+    }
+
+    .mini-btn.primary {
+      background: #111827;
+      color: white;
+    }
+
+    .mini-btn.ghost {
+      background: white;
+      color: #374151;
+      border: 1px solid rgba(17,24,39,0.08);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 16px;
+      margin-top: 18px;
+    }
+
+    .card {
+      background: linear-gradient(180deg, rgba(15, 27, 50, 0.9), rgba(10, 19, 36, 0.98));
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      padding: 22px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), transparent 35%);
+      pointer-events: none;
+    }
+
+    .card.wide {
+      grid-column: span 7;
+    }
+
+    .card.side {
+      grid-column: span 5;
+    }
+
+    .card.full {
+      grid-column: 1 / -1;
+    }
+
+    .card-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+
+    .icon-wrap {
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      font-size: 1.2rem;
+      flex-shrink: 0;
+    }
+
+    .icon-cyan {
+      background: rgba(34, 211, 238, 0.14);
+      color: var(--cyan-2);
+    }
+
+    .icon-violet {
+      background: rgba(139, 92, 246, 0.16);
+      color: #b69cff;
+    }
+
+    .icon-amber {
+      background: rgba(245, 158, 11, 0.14);
+      color: #fbbf24;
+    }
+
+    .icon-green {
+      background: rgba(52, 211, 153, 0.14);
+      color: #6ee7b7;
+    }
+
+    .card h2 {
+      font-size: 1.12rem;
+      font-weight: 700;
+    }
+
+    .card p,
+    .card li {
+      color: var(--muted);
+      line-height: 1.78;
+      font-size: 0.98rem;
+    }
+
+    .card strong {
+      color: white;
+    }
+
+    .point-list {
+      list-style: none;
+      display: grid;
+      gap: 12px;
+      margin-top: 10px;
+    }
+
+    .point-list li {
+      padding-left: 18px;
+      position: relative;
+    }
+
+    .point-list li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 12px;
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--cyan), var(--violet));
+      box-shadow: 0 0 0 4px rgba(94,234,212,0.08);
+    }
+
+    .split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-top: 8px;
+    }
+
+    .mini-box {
+      padding: 16px;
+      border-radius: 18px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.02);
+    }
+
+    .mini-box h3 {
+      font-size: 1rem;
+      margin-bottom: 8px;
+    }
+
+    .mini-box.warn h3 {
+      color: #fbbf24;
+    }
+
+    .mini-box.danger h3 {
+      color: #fb7185;
+    }
+
+    .tips {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-top: 8px;
+    }
+
+    .tip {
+      padding: 18px;
+      border-radius: 20px;
+      background: linear-gradient(180deg, rgba(17, 29, 53, 0.96), rgba(12, 23, 43, 0.98));
+      border: 1px solid var(--line);
+    }
+
+    .tip .top {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+
+    .tip .top i {
+      font-size: 1.2rem;
+      color: var(--green);
+    }
+
+    .final-cta {
+      margin-top: 16px;
+      padding: 26px;
+      border-radius: 24px;
+      background:
+        radial-gradient(circle at left top, rgba(34, 211, 238, 0.16), transparent 30%),
+        linear-gradient(135deg, rgba(17, 29, 53, 0.98), rgba(10, 20, 39, 0.98));
+      border: 1px solid rgba(94, 234, 212, 0.16);
+      text-align: center;
+    }
+
+    .final-cta .rocket {
+      width: 72px;
+      height: 72px;
+      margin: 0 auto 14px;
+      border-radius: 20px;
+      display: grid;
+      place-items: center;
+      font-size: 1.8rem;
+      background: linear-gradient(135deg, rgba(34,211,238,0.16), rgba(139,92,246,0.16));
+      color: white;
+    }
+
+    .final-cta h2 {
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      margin-bottom: 10px;
+    }
+
+    .final-cta p {
+      max-width: 56ch;
+      margin: 0 auto;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+
+    @media (max-width: 900px) {
+      .hero {
+        grid-template-columns: 1fr;
+      }
+
+      .card.wide,
+      .card.side {
+        grid-column: 1 / -1;
+      }
+
+      .tips {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      body {
+        padding: 14px;
+      }
+
+      .content {
+        padding: 18px;
+      }
+
+      .shell {
+        border-radius: 24px;
+      }
+
+      .hero h1 {
+        max-width: none;
+      }
+
+      .split {
+        grid-template-columns: 1fr;
+      }
+
+      .mini-phone {
+        min-height: 320px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="noise"></div>
+
+  <main class="shell">
+    <div class="top-glow"></div>
+
+    <div class="content">
+      <section class="hero">
+        <div class="hero-copy">
+          <div class="eyebrow">
+            <i class="ph-fill ph-warning-diamond"></i>
+            Pausa automática detectada
+          </div>
+
+          <h1>Seu perfil bateu um <span>limite temporário</span></h1>
+          <p>
+            Relaxa. Isso acontece quando o Instagram entende que já houve ações suficientes por agora. A ferramenta pausa sozinha, protege sua conta e tenta novamente depois do tempo de descanso.
+          </p>
+        </div>
+
+        <div class="hero-visual">
+          <div class="visual-card">
+            <div class="status-chip">
+              <i class="ph-fill ph-timer"></i>
+              NOVA TENTATIVA EM 1 HORA
+            </div>
+
+            <div class="mini-phone">
+              <div class="mini-icon">
+                <i class="ph-fill ph-warning-circle"></i>
+              </div>
+              <h3>Tente novamente mais tarde</h3>
+              <p>
+                Limitamos temporariamente as ações para manter o uso mais seguro e natural dentro da plataforma.
+              </p>
+              <div class="cta-row">
+                <button class="mini-btn ghost">Entendi</button>
+                <button class="mini-btn primary">Tudo certo</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="grid">
+        <article class="card wide">
+          <div class="card-header">
+            <div class="icon-wrap icon-cyan">
+              <i class="ph ph-shield-check"></i>
+            </div>
+            <h2>Por que isso acontece?</h2>
+          </div>
+          <p>
+            Esse aviso não significa erro da ferramenta. Na maioria dos casos, é apenas um freio do próprio Instagram para evitar excesso de ações em sequência. Quando isso acontece, a melhor decisão é pausar, esperar e continuar depois.
+          </p>
+          <ul class="point-list">
+            <li>Evita sobrecarga de ações no perfil</li>
+            <li>Reduz risco de bloqueios mais fortes</li>
+            <li>Ajuda a manter o comportamento da conta mais natural</li>
+          </ul>
+        </article>
+
+        <article class="card side">
+          <div class="card-header">
+            <div class="icon-wrap icon-violet">
+              <i class="ph ph-clock-countdown"></i>
+            </div>
+            <h2>O que a ferramenta faz</h2>
+          </div>
+          <p>
+            Assim que identifica o limite, ela entra em modo de espera automaticamente e deixa a conta respirar antes de tentar de novo.
+          </p>
+        </article>
+
+        <article class="card full">
+          <div class="card-header">
+            <div class="icon-wrap icon-amber">
+              <i class="ph ph-info"></i>
+            </div>
+            <h2>Os dois cenários mais comuns</h2>
+          </div>
+
+          <div class="split">
+            <div class="mini-box warn">
+              <h3>1. Muitas ações em pouco tempo</h3>
+              <p>
+                Quando a conta já executou várias interações seguidas, o Instagram pode travar novas ações por um período curto para desacelerar o ritmo.
+              </p>
+            </div>
+
+            <div class="mini-box danger">
+              <h3>2. Perfil seguindo gente demais</h3>
+              <p>
+                Se a conta já estiver muito próxima do teto de perfis seguidos, novas ações podem ficar limitadas até você limpar parte dessa lista.
+              </p>
+            </div>
+          </div>
+        </article>
+
+        <article class="card full">
+          <div class="card-header">
+            <div class="icon-wrap icon-green">
+              <i class="ph ph-sparkle"></i>
+            </div>
+            <h2>Como usar de forma mais segura</h2>
+          </div>
+
+          <div class="tips">
+            <div class="tip">
+              <div class="top">
+                <i class="ph-fill ph-moon-stars"></i>
+                <strong>Dê pausas reais</strong>
+              </div>
+              <p>Evite deixar a conta rodando sem descanso por muitos dias seguidos.</p>
+            </div>
+
+            <div class="tip">
+              <div class="top">
+                <i class="ph-fill ph-wave-sine"></i>
+                <strong>Alterne intensidade</strong>
+              </div>
+              <p>Trabalhe com um ritmo mais leve em alguns dias para manter a movimentação mais humana.</p>
+            </div>
+
+            <div class="tip">
+              <div class="top">
+                <i class="ph-fill ph-broom"></i>
+                <strong>Limpe os seguidos</strong>
+              </div>
+              <p>Se estiver seguindo muita gente, organize isso antes de tentar acelerar novamente.</p>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section class="final-cta">
+        <div class="rocket">
+          <i class="ph-fill ph-rocket-launch"></i>
+        </div>
+        <h2>Sem pânico. Isso é contornável.</h2>
+        <p>
+          Agora o ideal é aguardar o tempo de pausa automática. Depois disso, a ferramenta pode continuar com muito mais segurança para a sua conta.
+        </p>
+      </section>
+    </div>
+  </main>
+</body>
+</html>
